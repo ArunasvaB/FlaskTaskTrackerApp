@@ -1,30 +1,32 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Task Master</title>
+
+<title style="text-align: center;">Task Master</title>
+
 {% endblock %}
 
 {% block body %}
 
-    <table>
-        <tr>
-            <th>Task</th>
-            <th>Added</th>
-            <th>Actions</th>
-        </tr>
+<table style="align-content: center;">
+    <tr>
+        <th>Task</th>
+        <th>Added</th>
+        <th>Actions</th>
+    </tr>
 
-        <tr>
-            {% for task in tasks %}
-            <td>{{task.content}}</td>
+    <tr>
+        {% for task in tasks %}
+        <td>{{task.content}}</td>
 
-            <td> {{task.date_created.time()}}</td>
-            
-            <td> {{task.date_created.date()}}</td>
+        <td> {{task.date_created.time()}}</td>
+        
+        <td> {{task.date_created.date()}}</td>
 
-          
-        </tr>
-        {% endfor %}
-    </table>
+      
+    </tr>
+    {% endfor %}
+</table>
     <form action="/" method="POST">
         <input type="text" name="content" id="content">
         <input type="submit" value="Add Task">
